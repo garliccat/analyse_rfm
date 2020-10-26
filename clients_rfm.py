@@ -32,7 +32,6 @@ period_stop = '2020-10'
 
 
 # importing sales excel files
-os.chdir('..')
 files = glob.glob('datasets/sl*.xlsx')
 frames = []
 for f in files:
@@ -41,7 +40,6 @@ for f in files:
     df.index.name = 'date'
     frames.append(df)
 sales_df = pd.concat(frames, axis=0, sort=False)
-os.chdir('analyse_rfm')
 # selecting the date interval
 sales_df = sales_df.loc[period_start:period_stop]
 
